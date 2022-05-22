@@ -11,12 +11,24 @@ output:
 ```{r}
 # keep this chunk to activate theme
 aaRon::use.style()
+library(tidyverse)
 ```
 
-# Header 1
+# Load Data
 
 ```{r}
-print("Hello World!")
+mydata <- read.csv("Data/graduate-employment-survey-ntu-nus-sit-smu-suss-sutd.csv")
+glimpse(mydata)
+mydata %>% 
+  group_by(degree, university, school) %>% 
+  summarise(Counts = n()) %>% 
+  DT::datatable(filter = "top")
+
+mydata %>% 
+  filter(str_detect(degree, "Psychology|Social")) %>% 
+  ggplot(aes(x = year, y = employment_rate_overall, group = degree)) + 
+  geom_point() + 
+  geom_path()
 ```
 
 # Header 2
