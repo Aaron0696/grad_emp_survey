@@ -1,0 +1,24 @@
+---
+title: "Graduate Employment Survey"
+author: "Aaron"
+output:
+  html_document: 
+    toc: yes
+    toc_float: yes
+    highlight: haddock
+---
+
+```{r}
+# keep this chunk to activate theme
+aaRon::use.style()
+```
+
+# Header 1
+
+```{r}
+print("Hello World!")
+```
+
+# Header 2
+
+# Header 3
